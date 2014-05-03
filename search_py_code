@@ -1,2 +1,15 @@
 #!/bin/bash
-grep -i --line-number $1 < python_files.txt | vim -
+TMPFILE=`mktemp -q -t fifv_results.XXXXXX`;    
+if [ $? -ne 0 ]; then
+    echo "Can't create temp file, exiting...";
+    exit 1;    
+fi;    
+
+grep -i --line-number $1 < python_files.txt > $TMPFILE;
+
+if [ ! -s $TMPFILE ]; then
+    echo "No search results for $@";
+    exit 0;
+else
+    vim -q $TMPFILE -c cope;
+fi
