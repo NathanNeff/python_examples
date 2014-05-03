@@ -1,2 +1,2 @@
 #!/bin/bash
-grep --line-number $1 < python_files.txt | vim -
+grep -i --line-number $1 < python_files.txt | vim -
