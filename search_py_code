@@ -11,5 +11,5 @@ if [ ! -s $TMPFILE ]; then
     echo "No search results for $@";
     exit 0;
 else
-    vim -q $TMPFILE -c cope;
+    vim $TMPFILE;
 fi
