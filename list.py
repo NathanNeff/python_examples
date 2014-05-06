@@ -24,10 +24,10 @@ def test_inserts_and_appends():
     append_example.append([ 3, 4 ])
     assert [ 1, 2, [ 3, 4 ] ] == append_example
 
-
 def test_basic():
     lst = [ 1, 2, 3 ]
     assert [ 2, 3 ] == lst[1:]
+    assert 3 == len(lst) 
 
     greeting_words = ["Hello", "world", "jamaica", "Mon"]
     assert "Hello-world-jamaica-Mon" == '-'.join(greeting_words)
@@ -43,7 +43,6 @@ def test_sort():
          '22',
          'A', 'Z',
          'a', 'z'] == sorted(unsorted_list)
-
 
 if __name__ == '__main__':
     main()
