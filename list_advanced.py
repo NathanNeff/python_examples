@@ -9,4 +9,4 @@ print grid
 
 assert 3 == len(grid)
 assert 2 == len(grid[0])
-assert 1 == len(grid[2])
+assert 1 == len(grid[4])
