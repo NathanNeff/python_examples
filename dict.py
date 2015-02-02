@@ -22,6 +22,8 @@ sumz = 0
 for k in words.keys():
     sumz += words[k]
 
+assert len(words.keys()) == 2, "Expected %s" % words.keys()
+
 foos = words['foo']
 bars = words['bar']
 
