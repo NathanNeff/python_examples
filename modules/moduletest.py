@@ -3,7 +3,7 @@ import natemod
 
 class Something(unittest.TestCase):
     def testSomething(self):
-        self.assertEqual(1,1)
+        self.assertEqual("Foo",natemod.natefunc("Foo"))
 
 if __name__ == "__main__":
     unittest.main()
