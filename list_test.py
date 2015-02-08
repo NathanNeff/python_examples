@@ -1,5 +1,6 @@
 import unittest
-import re
+import itertools
+import pprint
 
 class ListTest(unittest.TestCase):
 
@@ -38,6 +39,14 @@ class ListTest(unittest.TestCase):
         lst = [ 1, 2, 3 ]
         self.assertEquals([ 2, 3 ] , lst[1:])
 
+    def test_slice_2(self):
+        lst = [ 1, 2, 3 ]
+        self.assertEquals([ 1, 2 ] , lst[0:2])
+
+    def test_slice_loop(self):
+        lst = [ 1, 2, 3, 4, 5 ]
+        moves = []
+
     def test_len(self):
         self.assertEquals(3, len([1,2,3]))
 
@@ -57,5 +66,28 @@ class ListTest(unittest.TestCase):
              'A', 'Z',
              'a', 'z'] , sorted(unsorted_list))
 
+    def test_split(self):
+
+        l = "one two three four five six seven".split()
+        self.assertEquals("one", l[0])
+        self.assertEquals("two", l[1])
+        
+    def test_split_pairs(self):
+        "Collect pairs of items from a string into a list"
+
+        l = "one two three four five".split()
+        moves_iter  = itertools.izip_longest(fillvalue="", *[iter(l)] * 2)
+        moves_list = []
+        for move in moves_iter:
+            moves_list.append(move)
+
+        self.assertEquals("one", moves_list[0][0])
+        self.assertEquals("two", moves_list[0][1])
+        self.assertEquals("three", moves_list[1][0])
+        self.assertEquals("four", moves_list[1][1])
+        self.assertEquals("five", moves_list[2][0])
+        self.assertEquals("", moves_list[2][1])
+
+
 if __name__ == "__main__":
-    main()
+    unittest.main()
