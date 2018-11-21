@@ -6,4 +6,7 @@ for i in range(1, 100):
     output.write("BOOM")
 
 output.close()
-print "I just output BOOM to", filename
+print("I just output BOOM to", filename)
+
+with open(filename, "w") as file: 
+    file.write("hello again")
