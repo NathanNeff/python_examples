@@ -20,6 +20,12 @@ class TestDFs(unittest.TestCase):
         df2 = pd.Series([4, 7, -5, 3], index=['d', 'b', 'a', 'c'])
         self.assertEqual(4, df2['d'])
 
+        dfgte7 = df2[df2 >= 7]
+        np.testing.assert_array_equal([ 7 ], dfgte7.values)
+
+        # Apply operation to entire DF
+        dfTimesTwo = df2 * 2
+        self.assertEqual(8, dfTimesTwo['d'])
        
         return df
 
