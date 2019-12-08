@@ -27,6 +27,9 @@ class TestDFs(unittest.TestCase):
         dfTimesTwo = df2 * 2
         self.assertEqual(8, dfTimesTwo['d'])
        
+        # Look for labels 'd' and 'D' in dfTimesTwo
+        self.assertTrue('d' in dfTimesTwo)
+        self.assertFalse('D' in dfTimesTwo)
         return df
 
 if __name__ == '__main__':
